@@ -17,8 +17,8 @@ matrix_map = """
 (3,0) (3,1) (3,2) (3,3) (3,4) (3,5) (3,6)           (3,7) (3,8) (3,9) (3,10) (3,11) (3,12) (3,13)
             (4,2) (4,3)                                               (4,10) (4,11)
                         (4,4) (4,5)                           (4,13)
-                            (4,6) (5,6)                      (4,12)
-                                (5,4) (5,5)                 (4,9)
+                            (5,6) (5,5)                      (4,12)
+                                (4,6) (5,4)                 (4,9)
                                                            (4,8)
                                                         (4,7)
 """
@@ -26,7 +26,16 @@ matrix_map = """
 [[layer]]
 name = "base_layer" #optional name for the layer
 keys = """
-A
+Escape  Kc1     Kc2             Kc3         Kc4     Kc5     Equal           Grave       Kc6     Kc7     Kc8     Kc9     Kc0         Minus
+Tab     Q       W               E           R       T       PageDown        PageUp      Y       U       I       O       P           LeftBracket
+LShift  A       S               D           F       G       Home            End         H       J       K       L       Semicolon   Quote
+LCtrl   Z       X               C           V       B       A               B        N       M       Comma   Dot     Slash       Backslash
+                NonusBackslash  RightBracket                                                            A       B
+                                            Space MouseBtn1                                       Enter
+                                                1  2                                         Backspace
+                                                      3 4                                 MouseBtn2
+                                                                                        MouseWheelUp
+                                                                                    MouseWheelDown
 """
 
 [ble]
@@ -73,7 +82,7 @@ spi.cs = "P0_22"
 motion = "P0_20" # Optional. If omitted, the sensor is polled.
 
 # Optional: Report rate in Hz
-report_hz = 125
+#report_hz = 125
 
 force_awake = false
 smart_mode = true
@@ -85,6 +94,10 @@ invert_x = true
 [storage]
 # Storage feature is enabled by default
 # enabled = false
+
+[host]
+vial_enabled = true
+unlock_keys = [[0, 0], [0, 1]]
 
 [rmk]
 split_peripherals_num = 1
